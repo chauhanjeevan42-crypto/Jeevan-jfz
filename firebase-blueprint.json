@@ -1,0 +1,229 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile with athletic training preferences and experience level",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128 },
+        "email": { "type": "string", "maxLength": 256 },
+        "displayName": { "type": "string", "maxLength": 128 },
+        "photoURL": { "type": "string", "maxLength": 1024 },
+        "preferredLanguage": { "type": "string", "enum": ["hi", "en"] },
+        "experienceLevel": { "type": "string", "enum": ["beginner", "intermediate", "advanced"] },
+        "trainingInterests": { "type": "string", "maxLength": 500 },
+        "trainingGoals": { "type": "string", "maxLength": 500 },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "email"]
+    },
+    "AdminRecord": {
+      "title": "AdminRecord",
+      "description": "Authorized administrator record for Jeevan Chauhan and staff",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "maxLength": 128 },
+        "email": { "type": "string", "maxLength": 256 },
+        "role": { "type": "string", "enum": ["admin", "superadmin"] },
+        "addedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email"]
+    },
+    "Exercise": {
+      "title": "Exercise",
+      "description": "Exercise in fitness or hybrid training library",
+      "type": "object",
+      "properties": {
+        "nameEn": { "type": "string", "maxLength": 200 },
+        "nameHi": { "type": "string", "maxLength": 200 },
+        "category": { "type": "string", "maxLength": 100 },
+        "difficulty": { "type": "string", "enum": ["beginner", "intermediate", "advanced"] },
+        "muscleGroups": { "type": "string", "maxLength": 200 },
+        "descriptionEn": { "type": "string", "maxLength": 2000 },
+        "descriptionHi": { "type": "string", "maxLength": 2000 },
+        "instructionsEn": { "type": "string", "maxLength": 4000 },
+        "instructionsHi": { "type": "string", "maxLength": 4000 },
+        "mistakesEn": { "type": "string", "maxLength": 2000 },
+        "mistakesHi": { "type": "string", "maxLength": 2000 },
+        "safetyNotesEn": { "type": "string", "maxLength": 2000 },
+        "safetyNotesHi": { "type": "string", "maxLength": 2000 },
+        "sets": { "type": "number" },
+        "reps": { "type": "string", "maxLength": 50 },
+        "durationSec": { "type": "number" },
+        "restSec": { "type": "number" },
+        "videoUrl": { "type": "string", "maxLength": 1000 },
+        "imageUrl": { "type": "string", "maxLength": 1000 },
+        "isPublished": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["nameEn", "category", "difficulty"]
+    },
+    "Workout": {
+      "title": "Workout",
+      "description": "Workout routine session",
+      "type": "object",
+      "properties": {
+        "titleEn": { "type": "string", "maxLength": 200 },
+        "titleHi": { "type": "string", "maxLength": 200 },
+        "descriptionEn": { "type": "string", "maxLength": 2000 },
+        "descriptionHi": { "type": "string", "maxLength": 2000 },
+        "category": { "type": "string", "maxLength": 100 },
+        "level": { "type": "string", "enum": ["beginner", "intermediate", "advanced"] },
+        "estimatedMinutes": { "type": "number" },
+        "isSample": { "type": "boolean" },
+        "isPublished": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["titleEn", "category", "level"]
+    },
+    "WorkoutLog": {
+      "title": "WorkoutLog",
+      "description": "User logged workout or personal record entry",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128 },
+        "workoutTitle": { "type": "string", "maxLength": 200 },
+        "category": { "type": "string", "maxLength": 100 },
+        "durationMinutes": { "type": "number" },
+        "notes": { "type": "string", "maxLength": 1000 },
+        "runningDistanceKm": { "type": "number" },
+        "runningTimeMinutes": { "type": "number" },
+        "personalRecords": { "type": "string", "maxLength": 1000 },
+        "completedAt": { "type": "string", "format": "date-time" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "workoutTitle"]
+    },
+    "TrainingPlan": {
+      "title": "TrainingPlan",
+      "description": "Structured multi-week training program",
+      "type": "object",
+      "properties": {
+        "titleEn": { "type": "string", "maxLength": 200 },
+        "titleHi": { "type": "string", "maxLength": 200 },
+        "descriptionEn": { "type": "string", "maxLength": 2000 },
+        "descriptionHi": { "type": "string", "maxLength": 2000 },
+        "category": { "type": "string", "maxLength": 100 },
+        "level": { "type": "string", "enum": ["beginner", "intermediate", "advanced"] },
+        "totalWeeks": { "type": "number" },
+        "isPublished": { "type": "boolean" },
+        "isSample": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["titleEn", "category", "level"]
+    },
+    "VideoLesson": {
+      "title": "VideoLesson",
+      "description": "Video lesson in the JFZ educational library",
+      "type": "object",
+      "properties": {
+        "titleEn": { "type": "string", "maxLength": 200 },
+        "titleHi": { "type": "string", "maxLength": 200 },
+        "descriptionEn": { "type": "string", "maxLength": 3000 },
+        "descriptionHi": { "type": "string", "maxLength": 3000 },
+        "category": { "type": "string", "maxLength": 100 },
+        "level": { "type": "string", "enum": ["all", "beginner", "intermediate", "advanced"] },
+        "duration": { "type": "string", "maxLength": 50 },
+        "instructor": { "type": "string", "maxLength": 100 },
+        "youtubeUrl": { "type": "string", "maxLength": 1000 },
+        "videoThumbnail": { "type": "string", "maxLength": 1000 },
+        "isPublished": { "type": "boolean" },
+        "isFeatured": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["titleEn", "category", "instructor"]
+    },
+    "LessonProgress": {
+      "title": "LessonProgress",
+      "description": "Individual user progress for a video lesson",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128 },
+        "lessonId": { "type": "string", "maxLength": 128 },
+        "isCompleted": { "type": "boolean" },
+        "isFavorite": { "type": "boolean" },
+        "lastWatchedAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "lessonId"]
+    },
+    "Announcement": {
+      "title": "Announcement",
+      "description": "Instructor announcement by Jeevan Chauhan",
+      "type": "object",
+      "properties": {
+        "titleEn": { "type": "string", "maxLength": 200 },
+        "titleHi": { "type": "string", "maxLength": 200 },
+        "contentEn": { "type": "string", "maxLength": 4000 },
+        "contentHi": { "type": "string", "maxLength": 4000 },
+        "isPinned": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["titleEn", "contentEn"]
+    },
+    "AppSettings": {
+      "title": "AppSettings",
+      "description": "Global JFZ brand and contact details configured by admin",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "maxLength": 256 },
+        "phone": { "type": "string", "maxLength": 50 },
+        "whatsapp": { "type": "string", "maxLength": 50 },
+        "youtube": { "type": "string", "maxLength": 500 },
+        "instagram": { "type": "string", "maxLength": 500 },
+        "facebook": { "type": "string", "maxLength": 500 },
+        "aboutBioEn": { "type": "string", "maxLength": 5000 },
+        "aboutBioHi": { "type": "string", "maxLength": 5000 },
+        "coachingPhilosophyEn": { "type": "string", "maxLength": 4000 },
+        "coachingPhilosophyHi": { "type": "string", "maxLength": 4000 },
+        "achievementsEn": { "type": "string", "maxLength": 4000 },
+        "achievementsHi": { "type": "string", "maxLength": 4000 },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["email"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "UserProfile" },
+      "description": "User profiles restricted to owner and admin"
+    },
+    "/admins/{uid}": {
+      "schema": { "$ref": "AdminRecord" },
+      "description": "List of authorized administrator UIDs"
+    },
+    "/exercises/{exerciseId}": {
+      "schema": { "$ref": "Exercise" },
+      "description": "Exercise catalog, public read for published, admin write"
+    },
+    "/workouts/{workoutId}": {
+      "schema": { "$ref": "Workout" },
+      "description": "Workouts catalog, public read for published, admin write"
+    },
+    "/workoutLogs/{logId}": {
+      "schema": { "$ref": "WorkoutLog" },
+      "description": "Personal workout logs and records, private to user"
+    },
+    "/trainingPlans/{planId}": {
+      "schema": { "$ref": "TrainingPlan" },
+      "description": "Training plans, public read for published, admin write"
+    },
+    "/videos/{videoId}": {
+      "schema": { "$ref": "VideoLesson" },
+      "description": "Video lessons library, public read for published, admin write"
+    },
+    "/lessonProgress/{progressId}": {
+      "schema": { "$ref": "LessonProgress" },
+      "description": "User video lesson progress and favorites, private to user"
+    },
+    "/announcements/{announcementId}": {
+      "schema": { "$ref": "Announcement" },
+      "description": "Instructor announcements, public read, admin write"
+    },
+    "/appSettings/{settingId}": {
+      "schema": { "$ref": "AppSettings" },
+      "description": "Global application and contact settings, public read, admin write"
+    }
+  }
+}

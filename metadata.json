@@ -1,0 +1,6 @@
+{
+  "name": "JFZ — Jeevan Fit Zone",
+  "description": "Premium fitness, hybrid training, and martial arts sports performance app by Jeevan Chauhan.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
